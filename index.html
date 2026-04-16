@@ -8,15 +8,15 @@
     <style>
       /* === ПЕРЕМЕННЫЕ === */
 :root {
-    --primary: #0088cc;
-    --primary-hover: #007ab8;
-    --bg: #e9edf3;
+    --primary: #229ED9; /* чуть приятнее чем старый */
+    --primary-hover: #1c8ac4;
+    --bg: #eef1f5;
     --card: #ffffff;
-    --text-main: #222;
-    --text-muted: #777;
-    --border: #dcdfe6;
-    --radius: 12px;
-    --shadow: rgba(0, 0, 0, 0.05);
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border: #e3e6ea;
+    --radius: 14px;
+    --shadow: rgba(0, 0, 0, 0.06);
 }
 
 /* Тёмная тема */
@@ -28,7 +28,7 @@ body.dark {
     --text-main: #e4e6eb;
     --text-muted: #b0b3b8;
     --border: #3a3b3c;
-    --shadow: rgba(0, 0, 0, 0.4);
+    --shadow: rgba(0, 0, 0, 0.5);
 }
 
 /* БАЗА */
@@ -37,41 +37,75 @@ body {
     background: var(--bg);
     color: var(--text-main);
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
 }
 
 /* ХЕДЕР */
 .top-nav {
+    width: 100%;
     background: var(--card);
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 6px var(--shadow);
 }
 
 .logo {
     font-weight: 700;
+    font-size: 22px;
     color: var(--primary);
+}
+
+/* СЕТКА */
+.main-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 320px;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 24px;
+    box-sizing: border-box;
 }
 
 /* КОНТЕЙНЕРЫ */
 .container {
     background: var(--card);
+    padding: 20px;
     border-radius: var(--radius);
     border: 1px solid var(--border);
-    box-shadow: 0 2px 6px var(--shadow);
+    box-shadow: 0 4px 10px var(--shadow);
 }
 
 /* ПРОФИЛЬ */
 .user-avatar {
-    border: 2px solid var(--bg);
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 3px solid var(--bg);
+    box-shadow: 0 6px 12px var(--shadow);
+    margin-bottom: 12px;
 }
 
 /* ПОЛЬЗОВАТЕЛИ */
 .user-item {
-    padding: 10px 12px;
-    border-radius: 10px;
-    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .user-item:hover {
-    background: #f1f5f9;
+    background: #eef6fb;
 }
 
 body.dark .user-item:hover {
@@ -80,15 +114,21 @@ body.dark .user-item:hover {
 
 .user-item.active {
     background: var(--primary);
-    color: #fff;
+    color: white;
 }
 
 /* ПОСТЫ */
 .post {
-    padding: 16px;
-    border-radius: 12px;
+    padding: 16px 18px;
+    border-radius: 14px;
     border: 1px solid var(--border);
     margin-bottom: 16px;
+    box-shadow: 0 2px 6px var(--shadow);
+    transition: transform 0.15s ease;
+}
+
+.post:hover {
+    transform: translateY(-2px);
 }
 
 .post img {
@@ -100,20 +140,18 @@ body.dark .user-item:hover {
     background: transparent;
     padding: 4px 8px;
     border-radius: 8px;
+    transition: all 0.2s;
 }
 
 .react-btn:hover {
     background: #eef6fb;
-}
-
-body.dark .react-btn:hover {
-    background: #3a3b3c;
+    color: var(--primary);
 }
 
 /* ЧАТ */
 #chatMessages {
-    background: #f5f7fb;
-    border-radius: 10px;
+    background: #f4f7fb;
+    border-radius: 12px;
     border: 1px solid var(--border);
 }
 
@@ -133,24 +171,27 @@ body.dark #chatMessages {
 
 /* ИНПУТЫ */
 input[type="text"] {
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid var(--border);
     padding: 12px;
+    transition: all 0.2s;
 }
 
 input[type="text"]:focus {
     border-color: var(--primary);
-    outline: none;
+    box-shadow: 0 0 0 2px rgba(34,158,217,0.2);
 }
 
 /* КНОПКИ */
 .btn-primary {
     background: var(--primary);
-    border-radius: 10px;
+    border-radius: 12px;
+    transition: all 0.2s;
 }
 
 .btn-primary:hover {
     background: var(--primary-hover);
+    transform: translateY(-1px);
 }
 
 /* САЙДБАР */
