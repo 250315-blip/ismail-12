@@ -8,30 +8,30 @@
     <style>
       /* === ПЕРЕМЕННЫЕ === */
 :root {
-    --primary: #5865f2;
-    --primary-hover: #4752c4;
-    --bg: #f5f7fb;
+    --primary: #0088cc;
+    --primary-hover: #007ab8;
+    --bg: #e9edf3;
     --card: #ffffff;
-    --text-main: #1f2937;
-    --text-muted: #6b7280;
-    --border: #e5e7eb;
+    --text-main: #222;
+    --text-muted: #777;
+    --border: #dcdfe6;
     --radius: 12px;
-    --shadow: rgba(0, 0, 0, 0.06);
+    --shadow: rgba(0, 0, 0, 0.05);
 }
 
-/* ТЁМНАЯ ТЕМА */
+/* Тёмная тема */
 body.dark {
-    --primary: #5865f2;
-    --primary-hover: #4752c4;
-    --bg: #0f172a;
-    --card: #1e293b;
-    --text-main: #e2e8f0;
-    --text-muted: #94a3b8;
-    --border: #334155;
-    --shadow: rgba(0, 0, 0, 0.5);
+    --primary: #3390ec;
+    --primary-hover: #2a7cd6;
+    --bg: #18191a;
+    --card: #242526;
+    --text-main: #e4e6eb;
+    --text-muted: #b0b3b8;
+    --border: #3a3b3c;
+    --shadow: rgba(0, 0, 0, 0.4);
 }
 
-/* === ОСНОВА === */
+/* БАЗА */
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
@@ -39,7 +39,7 @@ body {
     margin: 0;
 }
 
-/* === ХЕДЕР === */
+/* ХЕДЕР */
 .top-nav {
     background: var(--card);
     border-bottom: 1px solid var(--border);
@@ -47,37 +47,35 @@ body {
 
 .logo {
     font-weight: 700;
-    font-size: 20px;
     color: var(--primary);
 }
 
-/* === КОНТЕЙНЕРЫ === */
+/* КОНТЕЙНЕРЫ */
 .container {
     background: var(--card);
     border-radius: var(--radius);
     border: 1px solid var(--border);
-    box-shadow: 0 4px 12px var(--shadow);
+    box-shadow: 0 2px 6px var(--shadow);
 }
 
-/* === ПРОФИЛЬ === */
+/* ПРОФИЛЬ */
 .user-avatar {
-    border-radius: 50%;
-    border: 2px solid var(--border);
+    border: 2px solid var(--bg);
 }
 
-/* === ПОЛЬЗОВАТЕЛИ === */
+/* ПОЛЬЗОВАТЕЛИ */
 .user-item {
+    padding: 10px 12px;
     border-radius: 10px;
-    padding: 10px;
-    transition: background 0.2s ease;
+    transition: background 0.2s;
 }
 
 .user-item:hover {
-    background: #eef2ff;
+    background: #f1f5f9;
 }
 
 body.dark .user-item:hover {
-    background: #1e293b;
+    background: #2c2d2e;
 }
 
 .user-item.active {
@@ -85,8 +83,9 @@ body.dark .user-item:hover {
     color: #fff;
 }
 
-/* === ПОСТЫ === */
+/* ПОСТЫ */
 .post {
+    padding: 16px;
     border-radius: 12px;
     border: 1px solid var(--border);
     margin-bottom: 16px;
@@ -96,51 +95,35 @@ body.dark .user-item:hover {
     border-radius: 12px;
 }
 
-.author-name {
-    color: var(--primary);
-}
-
-/* === РЕАКЦИИ === */
-.reactions {
-    margin-top: 10px;
-}
-
+/* РЕАКЦИИ */
 .react-btn {
-    background: #f1f5f9;
+    background: transparent;
+    padding: 4px 8px;
     border-radius: 8px;
-    padding: 5px 10px;
-}
-
-body.dark .react-btn {
-    background: #334155;
 }
 
 .react-btn:hover {
-    background: var(--primary);
-    color: white;
+    background: #eef6fb;
 }
 
-/* === ЧАТ === */
+body.dark .react-btn:hover {
+    background: #3a3b3c;
+}
+
+/* ЧАТ */
 #chatMessages {
-    background: #f1f5f9;
-    border: 1px solid var(--border);
+    background: #f5f7fb;
     border-radius: 10px;
+    border: 1px solid var(--border);
 }
 
 body.dark #chatMessages {
-    background: #020617;
-}
-
-.msg {
-    padding: 10px 14px;
-    border-radius: 14px;
-    max-width: 70%;
+    background: #202124;
 }
 
 .msg-me {
     background: var(--primary);
     color: white;
-    align-self: flex-end;
 }
 
 .msg-them {
@@ -148,12 +131,11 @@ body.dark #chatMessages {
     border: 1px solid var(--border);
 }
 
-/* === ИНПУТЫ === */
+/* ИНПУТЫ */
 input[type="text"] {
     border-radius: 10px;
     border: 1px solid var(--border);
     padding: 12px;
-    background: var(--card);
 }
 
 input[type="text"]:focus {
@@ -161,38 +143,28 @@ input[type="text"]:focus {
     outline: none;
 }
 
-/* === КНОПКИ === */
+/* КНОПКИ */
 .btn-primary {
     background: var(--primary);
-    border: none;
     border-radius: 10px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
 }
 
 .btn-primary:hover {
     background: var(--primary-hover);
 }
 
-/* === САЙДБАРЫ === */
+/* САЙДБАР */
 .sidebar, .chat-sidebar {
-    display: flex;
-    flex-direction: column;
     height: calc(100vh - 96px);
     overflow-y: auto;
 }
 
-/* === АДАПТИВ === */
+/* АДАПТИВ */
 @media (max-width: 1100px) {
     .main-layout {
         grid-template-columns: 1fr;
         max-width: 600px;
         padding: 16px;
-    }
-    .sidebar, .chat-sidebar {
-        height: auto;
-        max-height: 400px;
     }
 }
     </style>
