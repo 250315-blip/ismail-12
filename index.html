@@ -3,310 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testogramkkk</title>
+    <title>IsmailCheGram</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-    --primary: #0088cc; /* Telegram синий */
-    --primary-hover: #007ab8;
-    --bg: #e5e5e5;
-    --card: #ffffff;
-    --text-main: #222222;
-    --text-muted: #888888;
-    --border: #d0d0d0;
-    --radius: 12px;
-    --shadow: rgba(0, 0, 0, 0.05);
+       :root {
+    --primary: #7c5cff;
+    --primary-hover: #6a4ee6;
+    --bg: #0f1221;
+    --card: rgba(255, 255, 255, 0.06);
+    --text-main: #f1f3ff;
+    --text-muted: #9aa3b2;
+    --border: rgba(255, 255, 255, 0.08);
+    --radius: 16px;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --blur: blur(14px);
 }
 
+/* Светлая тема */
+body:not(.dark) {
+    --primary: #6c63ff;
+    --primary-hover: #574fd6;
+    --bg: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    --card: rgba(255, 255, 255, 0.7);
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border: rgba(0, 0, 0, 0.05);
+    --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* Общий стиль */
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text-main);
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    -webkit-font-smoothing: antialiased;
-    font-size: 16px;
-}
-        /* Тёмная тема */
-body.dark {
-    --primary: #1e90ff;
-    --primary-hover: #1c7cd6;
-    --bg: #121212;
-    --card: #1e1e1e;
-    --text-main: #e0e0e0;
-    --text-muted: #aaaaaa;
-    --border: #333333;
-    --shadow: rgba(0, 0, 0, 0.7);
 }
 
 /* Хедер */
 .top-nav {
-    width: 100%;
+    backdrop-filter: var(--blur);
     background: var(--card);
-    padding: 12px 0;
-    display: flex;
-    justify-content: center;
     border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 1px 3px var(--shadow);
-}
-
-.nav-content {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 24px;
-    box-sizing: border-box;
 }
 
 .logo {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 22px;
-    color: var(--primary);
-    letter-spacing: -0.5px;
-}
-
-/* Основная сетка */
-.main-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr 320px;
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    padding: 24px;
-    box-sizing: border-box;
-    align-items: start;
-    min-height: calc(100vh - 60px);
+    background: linear-gradient(45deg, #7c5cff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Контейнеры */
 .container {
     background: var(--card);
-    padding: 20px;
+    backdrop-filter: var(--blur);
     border-radius: var(--radius);
-    box-shadow: 0 2px 8px var(--shadow);
     border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 8px 30px var(--shadow);
 }
 
 /* Профиль */
-.user-card {
-    text-align: center;
-}
 .user-avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    border: 3px solid var(--bg);
-    box-shadow: 0 4px 8px var(--shadow);
-    object-fit: cover;
-    margin: 0 auto 16px;
+    border: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
-#userName {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    color: var(--text-main);
-}
-
-.user-card p {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 14px;
-}
-
-/* Список пользователей */
+/* Пользователи */
 .user-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--text-main);
+    border-radius: 12px;
+    transition: all 0.25s ease;
 }
 
 .user-item:hover {
-    background-color: #d7f0ff;
+    background: rgba(124, 92, 255, 0.15);
+    transform: translateX(4px);
 }
 
 .user-item.active {
-    background-color: var(--primary);
+    background: linear-gradient(45deg, #7c5cff, #00d4ff);
     color: white;
-    font-weight: 700;
 }
 
-.user-item img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Заголовки разделов */
-.section-title {
-    font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: var(--text-main);
-}
-
-/* Feed и посты */
+/* Посты */
 .post {
     background: var(--card);
-    padding: 16px 20px;
-    border-radius: var(--radius);
+    backdrop-filter: var(--blur);
+    border-radius: 18px;
     border: 1px solid var(--border);
-    margin-bottom: 18px;
-    box-shadow: 0 1px 4px var(--shadow);
+    box-shadow: 0 10px 25px var(--shadow);
+    transition: transform 0.2s ease;
 }
 
-.post-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+.post:hover {
+    transform: translateY(-3px);
 }
 
 .author-name {
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--primary);
-}
-
-.post-time {
-    font-size: 13px;
-    color: var(--text-muted);
-}
-
-.post-content {
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    white-space: pre-wrap;
+    color: #00d4ff;
 }
 
 .post img {
-    width: 100%;
-    border-radius: 14px;
-    margin-top: 10px;
-    display: block;
+    border-radius: 16px;
 }
 
-/* Реакции */
-.reactions {
-    display: flex;
-    gap: 12px;
-    margin-top: 10px;
-}
-
+/* Кнопки реакций */
 .react-btn {
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 600;
-    transition: color 0.2s ease;
+    background: rgba(255,255,255,0.05);
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
 }
 
 .react-btn:hover {
-    color: var(--primary);
+    background: linear-gradient(45deg, #7c5cff, #00d4ff);
+    color: white;
 }
 
 /* Чат */
 #chatMessages {
-    height: 400px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px;
-    background: var(--bg);
-    border-radius: 14px;
-    border: 1px solid #ccc;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) transparent;
-}
-
-#chatMessages::-webkit-scrollbar {
-    width: 8px;
-}
-
-#chatMessages::-webkit-scrollbar-thumb {
-    background-color: var(--primary);
-    border-radius: 10px;
-}
-
-.msg {
-    padding: 10px 16px;
-    border-radius: 18px;
-    max-width: 75%;
-    font-size: 14px;
-    position: relative;
-    word-wrap: break-word;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid var(--border);
 }
 
 .msg-me {
-    background: var(--primary);
-    color: white;
-    align-self: flex-end;
-    border-bottom-right-radius: 4px;
+    background: linear-gradient(45deg, #7c5cff, #00d4ff);
 }
 
 .msg-them {
-    background: var(--card);
-    color: var(--text-main);
-    align-self: flex-start;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 1px 3px var(--shadow);
+    background: rgba(255,255,255,0.08);
 }
 
 /* Инпуты */
 input[type="text"] {
-    width: 100%;
-    padding: 14px 18px;
-    margin: 10px 0;
-    border-radius: var(--radius);
+    background: rgba(255,255,255,0.05);
     border: 1px solid var(--border);
-    background: var(--card);
-    font-family: inherit;
-    font-size: 15px;
-    transition: border-color 0.2s ease;
-    box-sizing: border-box;
+    backdrop-filter: var(--blur);
 }
 
 input[type="text"]:focus {
-    border-color: var(--primary);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0,136,204,0.2);
+    border-color: #7c5cff;
+    box-shadow: 0 0 0 2px rgba(124,92,255,0.3);
 }
 
+/* Кнопки */
 .btn-primary {
-    background: var(--primary);
-    color: white;
+    background: linear-gradient(45deg, #7c5cff, #00d4ff);
     border: none;
-    padding: 14px;
-    border-radius: var(--radius);
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    width: 100%;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(45deg, #6a4ee6, #00bcd4);
 }
 
 .btn-primary:hover {
